@@ -46,7 +46,6 @@ export class ExampleInputTransformationComponent {
 
     @Input() boolParam?: string;
 
-    
     //@Input({ transform: numberAttribute}) numberParam?: string;
     
     @Input() numberParam?: string;

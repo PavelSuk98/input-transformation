@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DetailObjectDTO } from '../../model/detail.dto';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-product-detail-without-input-binding',
@@ -18,13 +19,18 @@ import { DetailObjectDTO } from '../../model/detail.dto';
 })
 export class ProductDetailWithoutInputBindingComponent implements OnInit {
 
+  protected readonly route = inject(ActivatedRoute);
+
+  protected readonly cdr = inject(ChangeDetectorRef);
+
   protected paramId: string | undefined;
 
   protected detail: DetailObjectDTO | undefined;
 
-  protected readonly route = inject(ActivatedRoute);
+  protected detail$ = this.route.data.pipe(map((response) => response['detail']));
 
-  protected readonly cdr = inject(ChangeDetectorRef);
+  protected paramId$ = this.route.params.pipe(map((response) => response['id']));
+
 
   ngOnInit(): void {
 

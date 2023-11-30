@@ -17,17 +17,17 @@ import { RouterLink } from '@angular/router';
 })
 export class ProductDetailWithInputBindingComponent { 
 
-  detail?: DetailObjectDTO;
+  @Input() detail?: DetailObjectDTO; //resolved Detail
 
-  id?: string
+  @Input() id?: string // param route
 
-  @Input({alias: 'detail'}) set resolvedDetail(fetchedData: DetailObjectDTO | undefined) {
-    this.detail = fetchedData;
-    console.log(fetchedData);
-  }
+  // @Input({alias: 'detail'}) set resolvedDetail(fetchedData: DetailObjectDTO | undefined) {
+  //   this.detail = fetchedData;
+  //   console.log(fetchedData);
+  // }
 
-  @Input({ alias: 'id' }) set paramId(id: string) {
-    this.id = id;
-    console.log(id);
-  };
+  // @Input({ alias: 'id' }) set paramId(id: string) {
+  //   this.id = id;
+  //   console.log(id);
+  // };
 }

@@ -16,7 +16,7 @@ import { Course } from '../../model/course.dto';
   template: `<section>¨
       <h1 class="text-xl font-bold">Example input options</h1>
       <app-example-input-option requiredValue="123" postId="1"></app-example-input-option>
-      <h1 class="text-xl font-bold">Example input without transformation</h1>
+      <h1 class="text-xl font-bold">Example input transformation</h1>
       <app-example-input-transformation boolParam="true" [course]="course" numberParam="0"></app-example-input-transformation>
   </section>`,
   styleUrl: './input-transformations.component.css',
